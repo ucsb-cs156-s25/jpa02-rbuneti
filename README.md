@@ -2,7 +2,7 @@
 
 Repo: https://github.com/ucsb-cs156-s25/jpa02-rbuneti
 
-Deployed at: https://jpa02-rbuneti.dokku-08.cs.ucsb.edu/info
+Deployed at: https://jpa02-rbuneti.dokku-08.cs.ucsb.edu
 
 
 # About this repo
