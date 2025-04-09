@@ -64,5 +64,22 @@ public class HelloControllerTest {
 
     // TODO: Add additional tests as needed to get to 100% jacoco line coverage, and
     // 100% mutation coverage (all mutants timed out or killed)
+    @Test
+    public void getInfo_displays_correct_developer_info() throws Exception {
+    MvcResult response = mvc.perform(MockMvcRequestBuilders.get("/info").accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk()).andReturn();
+    String actualContent = response.getResponse().getContentAsString();
+
+    String expectedContent = String.format("""
+            <h1>Developer Info</h1>
+            <ul>
+              <li>Name: %s</li>
+              <li>Github ID: <a href="https://github.com/%s">%s</a></li>
+              <li>Team: <a href="/team">%s</a></li>
+            </ul>
+            """, Developer.getName(), Developer.getGithubId(), Developer.getGithubId(), Developer.getTeam().getName());
+
+    assertEquals(expectedContent, actualContent);
+}
 
 }
